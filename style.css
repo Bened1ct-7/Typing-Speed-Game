@@ -73,6 +73,12 @@ button:hover {
   margin-bottom: 2rem;
 }
 
+intro p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
 .game {
   z-index: 1;
 }
@@ -224,10 +230,4 @@ header h2 span {
   color: crimson;
   font-size: 1.7rem;
   margin-bottom: 2rem;
-}
-
-footer {
-  margin-top: 3rem;
-  padding: 1rem 0;
-  text-align: center;
 }
