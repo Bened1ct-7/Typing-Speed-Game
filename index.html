@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://kit.fontawesome.com/fffd17f093.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <title>Typing Speed Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="intro">
+      <div class="container">
+        <div class="hero">
+          <h1 data-aos="fade-left" data-aos-duration="1000">
+            Typing Speed Game
+          </h1>
+          <button data-aos="fade-right" data-aos-duration="1000" type="button">
+            Start Game
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="game">
+      <div class="container">
+        <header>
+          <h2>
+            <i class="fa-solid fa-diamond"></i>
+            <span class="score">0</span>
+          </h2>
+        </header>
+        <div class="word-div">
+          <h1></h1>
+        </div>
+        <div class="remark-div">
+          <h3>How fast are you?</h3>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="Start typing..." />
+        </div>
+        <div class="time-div">
+          <div class="time-bar-div">
+            <span class="time-bar"></span>
+          </div>
+          <p>0<span class="time">5</span></p>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <p>Copyright &copy; Benedict</p>
+        </div>
+      </footer>
+    </section>
+
+    <section class="alert">
+      <div class="container">
+        <h2>GAME OVER</h2>
+        <button type="button">New Game</button>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
