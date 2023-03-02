@@ -73,7 +73,7 @@ button:hover {
   margin-bottom: 2rem;
 }
 
-intro p {
+.intro p {
   margin-top: 1rem;
   font-size: 0.9rem;
   opacity: 0.9;
