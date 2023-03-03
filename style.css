@@ -1,7 +1,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
-  font-size: 15px;
+  font-size: 14px;
   --primary: #091011;
   --gold: #c26213;
   color: #fff;
@@ -91,6 +91,23 @@ button:hover {
 
 .game header {
   margin: 1rem 0 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.game header div {
+  order: 1;
+  opacity: 0.8;
+}
+
+header i {
+  color: gold;
+}
+
+header div p {
+  font-size: 1rem;
 }
 
 header h2 {
@@ -99,6 +116,7 @@ header h2 {
   align-items: center;
   justify-content: center;
   gap: 3px;
+  order: 2;
 }
 
 header h2 i {
@@ -206,28 +224,83 @@ header h2 span {
 }
 
 .alert {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: auto;
+  position: fixed;
+  top: -100%;
+  left: 0;
   z-index: 6;
-  background: #fff;
-  color: #111;
-  border-radius: 4px;
-  padding: 1.7rem 0.5rem;
   width: 100%;
-  max-width: 200px;
+  height: 100vh;
+  opacity: 0;
+  background: var(--primary);
   text-align: center;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
 }
 
 .alert.active {
+  top: 0;
+  opacity: 1;
+}
+
+.alert .container {
+  padding: 2rem 0 0.5rem;
+}
+
+.alert .high-score-div {
+  margin-bottom: 3rem;
+}
+
+.high-score-div i {
+  color: gold;
+}
+
+.high-score-div h2 {
+  margin-bottom: 2rem;
+}
+
+.high-score-h2 {
+  display: none;
+}
+
+.high-score-h2.active {
   display: block;
+}
+
+.high-score-div h2 span {
+  font-size: 2rem;
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+.high-score-div h2 i {
+  font-size: 1.8rem;
+}
+
+.high-score-div p {
+  font-size: 2.3rem;
+}
+
+.high-score-div p i {
+  font-size: 1.8rem;
+}
+
+.high-score-div p span {
+  opacity: 0.9;
+  font-weight: 700;
 }
 
 .alert h1 {
   color: crimson;
-  font-size: 1.7rem;
-  margin-bottom: 2rem;
+  font-size: 2.3rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;;
+}
+
+footer {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  text-align: center;
+  z-index: 4;
 }
