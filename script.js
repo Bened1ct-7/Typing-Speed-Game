@@ -8,6 +8,9 @@ const timeBar = document.querySelector(".time-bar");
 const remarkText = document.querySelector(".remark-div h3");
 const alertBox = document.querySelector(".alert");
 const alertBtn = alertBox.querySelector("button");
+const highScoreText = document.querySelector(".high-score");
+const endScoreText = document.querySelector(".end-score");
+const highScoreH2 = document.querySelector(".high-score-h2");
 
 const remarks = ["Inevitable", "Amazing", "Worderful", "Superb"];
 
@@ -18,7 +21,7 @@ let score = 0,
   typing = false,
   isAlerting = false;
 
-let index, word, letters;
+let index, word, letters, highScore;
 
 const removeAttr = (arr, className) => {
   arr.forEach((item) => {
@@ -49,12 +52,23 @@ const timeLeft = () => {
   }, 1000);
 };
 
+const endGame = () => {
+  if (score > highScore) {
+    highScoreH2.classList.add("active");
+    localStorage.setItem("highScore", JSON.stringify(score));
+    highScore = JSON.parse(localStorage.getItem("highScore"));
+    highScoreText.textContent = highScore;
+  }
+};
+
 setInterval(() => {
   if (isPlaying == false) {
     inputField.disabled = true;
     inputField.classList.add("disabled");
+    endGame();
     if (isAlerting == false) {
       alertBox.classList.add("active");
+      endScoreText.textContent = score;
       isAlerting = true;
     }
   }
@@ -64,6 +78,7 @@ const initGame = () => {
   isPlaying = true;
   scoreText.innerText = score;
   inputField.classList.remove("disabled");
+  highScoreH2.classList.remove("active");
   h1.innerHTML = "";
   inputField.value = "";
   inputField.focus();
@@ -118,6 +133,7 @@ const isTyping = (e) => {
 
   if (inputField.value.length < wordIndex) {
     letters[wordIndex - 1].classList.remove("correct", "mistake");
+    letters[letters.length - 1].classList.remove("correct", "mistake");
     removeAttr(letters, "active");
     letters[wordIndex - 1].classList.add("active");
     wordIndex--;
@@ -143,6 +159,7 @@ const isTyping = (e) => {
       e.preventDefault();
       wordIndex--;
       letters[wordIndex + 1].classList.remove("correct", "mistakes");
+      letters[letters.length - 1].classList.remove("correct", "mistakes");
     }
     return;
   }
@@ -161,12 +178,14 @@ alertBtn.addEventListener("click", () => {
     (isPlaying = true),
     (isAlerting = false);
   inputField.focus();
-  initGame();
+  setTimeout(() => initGame(), 300);
 });
 
 introBtn.addEventListener("click", () => {
+  highScore = JSON.parse(localStorage.getItem("highScore")) || 0;
+  highScoreText.textContent = highScore;
   introDiv.classList.add("active");
-  setTimeout(() => initGame(), 1000);
+  setTimeout(() => initGame(), 800);
   inputField.focus();
   setTimeout(() => {
     introDiv.style.display = "none";
